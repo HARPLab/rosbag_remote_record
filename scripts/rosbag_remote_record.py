@@ -248,7 +248,7 @@ if __name__ == '__main__':
                       dest="middleware",
                       help="Set the middleware [ros|rsb]")
     parser.add_option("-i", "--inscope",
-                      action="store",
+                      action="append",
                       dest="inscope",
                       help="Set the scopes/topics to record")
     parser.add_option("-t", "--triggerscope",
@@ -270,6 +270,7 @@ if __name__ == '__main__':
                       help="The number of message to record before automatically stopping")
 
     (options, args) = parser.parse_args()
+    options.inscope = ' '.join(options.inscope)
 
     if not options.filename or not options.inscope or not options.middleware:
         print ">>> No inscope, filename given or middleware provided --> see help."
