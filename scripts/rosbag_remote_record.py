@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 
 Copyright(c) <Florian Lier>
