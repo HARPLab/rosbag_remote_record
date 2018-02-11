@@ -270,11 +270,14 @@ if __name__ == '__main__':
                       help="The number of message to record before automatically stopping")
 
     (options, args) = parser.parse_args()
-    options.inscope = ' '.join(options.inscope)
 
     if not options.filename or not options.inscope or not options.middleware:
         print ">>> No inscope, filename given or middleware provided --> see help."
         sys.exit(1)
+
+    options.inscope = ' '.join(options.inscope)
+    print 'inscope: ' + options.inscope
+
     if not options.triggerscope:
         options.triggerscope = "/meka/rosbagremote/record"
     if options.middleware.lower() == "ros":
